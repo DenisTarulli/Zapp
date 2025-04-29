@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
-    [SerializeField] private Transform pointC;
-    [SerializeField] private float speedModifier;
+    [SerializeField] private float interpolationSpeed;
+    [SerializeField] private float moveSpeed;
     private float interpolateAmount;
     private int positionIndex;
     private bool isMoving;
@@ -18,14 +16,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        ForwardMovement();
+
         if (isMoving) return;
 
         if (Input.GetKeyDown(KeyCode.A) && positionIndex != 0)
         {
             if (positionIndex == 2)
-                StartCoroutine(Movement(pointC, pointB));
+                StartCoroutine(MoveTo(0f));
             else
-                StartCoroutine(Movement(pointB, pointA));
+                StartCoroutine(MoveTo(-1f));
 
             positionIndex--;
         }
@@ -33,27 +33,34 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) && positionIndex != 2)
         {
             if (positionIndex == 0)
-                StartCoroutine(Movement(pointA, pointB));
+                StartCoroutine(MoveTo(0f));
             else
-                StartCoroutine(Movement(pointB, pointC));
+                StartCoroutine(MoveTo(1f));
 
             positionIndex++;
         }
     }
 
-    private IEnumerator Movement(Transform startingPoint, Transform finalPoint)
+    private IEnumerator MoveTo(float newXPosition)
     {
         isMoving = true;
+        Vector3 currentPosition = transform.position;
+        Vector3 newPosition = new(newXPosition, transform.position.y, transform.position.z);
 
         while (interpolateAmount < 1f)
         {
-            interpolateAmount += Time.deltaTime * speedModifier;
-            transform.position = Vector3.Lerp(startingPoint.position, finalPoint.position, interpolateAmount);
+            interpolateAmount += Time.deltaTime * interpolationSpeed;
+            transform.position = Vector3.Lerp(currentPosition, newPosition, interpolateAmount);
 
             yield return new WaitForEndOfFrame();
         }
 
         interpolateAmount = 0f;
         isMoving = false;
+    }
+
+    private void ForwardMovement()
+    {
+        transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);        
     }
 }
