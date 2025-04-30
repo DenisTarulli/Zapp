@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPrefabs:
-  - {fileID: 524193912981379350, guid: c6d69c95c5b094441b70718f7e2d45d5, type: 3}
+  - {fileID: 6421557906735245149, guid: 7e0970f88e62fc649ab36271bcda91c7, type: 3}
+  - {fileID: 5670628016149122325, guid: c8c526015e870ea48bd58b2f32b4d194, type: 3}
   emptyFloorTilePrefab: {fileID: 524193912981379350, guid: c6d69c95c5b094441b70718f7e2d45d5,
     type: 3}
   initialEmptyTiles: 2
