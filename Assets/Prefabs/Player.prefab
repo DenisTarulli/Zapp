@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1923567740265859287}
   - component: {fileID: 1269471973043394656}
   - component: {fileID: 45551407508639792}
+  - component: {fileID: 970719342160633502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,7 +134,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.8, y: 0.8, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &45551407508639792
 MonoBehaviour:
@@ -148,7 +149,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interpolationSpeed: 10
-  moveSpeed: 7
+  moveSpeed: 13
+--- !u!114 &970719342160633502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911638375075568471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e975ac1d8e776245a01819e21983aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  maxHealth: 5
 --- !u!1 &7385090405085060079
 GameObject:
   m_ObjectHideFlags: 0

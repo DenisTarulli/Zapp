@@ -67,6 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a8835ae3b7e4d4a91d928aef54904d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinCollect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8507201183915353551
 GameObject:
   m_ObjectHideFlags: 0
