@@ -684,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 270.0818, y: -177.9}
+  m_AnchoredPosition: {x: 1607, y: -90}
   m_SizeDelta: {x: 480.6234, y: 119.8834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089338853
@@ -734,8 +734,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69
-  m_fontSizeBase: 69
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 2.509552, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -886,7 +886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 270.0818, y: -89.5}
+  m_AnchoredPosition: {x: 270.0818, y: -90}
   m_SizeDelta: {x: 480.6234, y: 119.8834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888888416
@@ -936,8 +936,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69
-  m_fontSizeBase: 69
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1063,6 +1063,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925496463914600985, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925496463914600985, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9aff473a842bedb45b2fb6ce4ea69d85, type: 2}
+    - target: {fileID: 6928183585113294667, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: field of view
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928183585113294667, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.654902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928183585113294667, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928183585113294667, guid: 61e5ac1b6fc08c64c9aff253c7698061,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.90588236
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
