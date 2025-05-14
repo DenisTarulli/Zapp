@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22745098, g: 0.47058824, b: 0.39215687, a: 1}
+  m_Color: {r: 0.5294118, g: 0.4392157, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.18039216, b: 0.12156863, a: 1}
+  m_Color: {r: 0.90588236, g: 0.78431374, b: 0.654902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.1792453, b: 0.1207162, a: 0.8784314}
+  m_Color: {r: 0.90588236, g: 0.78431374, b: 0.654902, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28141683, g: 0.6415094, b: 0.55946296, a: 1}
+  m_Color: {r: 0.5294118, g: 0.4392157, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.4745098, b: 0.39607844, a: 1}
+  m_Color: {r: 0.5294118, g: 0.4392157, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22917409, g: 0.4716981, b: 0.39250657, a: 1}
+  m_Color: {r: 0.5283019, g: 0.43777257, b: 0.34140262, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2286,8 +2286,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.21560162, g: 0.5377358, b: 0.46737495, a: 1}
-    m_HighlightedColor: {r: 0.35933605, g: 0.8962264, b: 0.6692972, a: 1}
+    m_NormalColor: {r: 0.5294118, g: 0.4392157, b: 0.34509805, a: 1}
+    m_HighlightedColor: {r: 0.7735849, g: 0.59323186, b: 0.40503737, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.9150943, g: 0.4704966, b: 0.4704966, a: 0.5019608}
