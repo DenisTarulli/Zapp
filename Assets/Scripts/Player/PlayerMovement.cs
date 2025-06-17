@@ -5,14 +5,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float interpolationSpeed;
     [SerializeField] private float jumpHeight;
-    [SerializeField, Range((float)-49.81, (float)-9.81)] private float gravityScale;
+    [SerializeField, Range((float)-79.81, (float)-9.81)] private float gravityScale;
     [SerializeField] private float fallingForce;
     [SerializeField] private float fallingForceMultiplier;
     [SerializeField] private BoxCollider boxCollider;
     [SerializeField] private BoxCollider groundCollider;
     [SerializeField] private LayerMask groundMask;
-    private float interpolateAmount;
+    [SerializeField] private float downForce;
     private int positionIndex;
+    private float interpolateAmount;
     private bool isMoving;
     [SerializeField] private bool isGrounded;
     private Rigidbody rb;
@@ -60,9 +61,14 @@ public class PlayerMovement : MonoBehaviour
             coroutine = StartCoroutine(MoveTo(dir));
         }
 
-        if (dir > 1 || dir < -1)
+        if (dir > 1)
         {
-            Jump(dir);
+            Jump();
+        }
+
+        if (dir < -1)
+        {
+            DownForce();
         }
     }
 
@@ -87,12 +93,19 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
     }
 
-    private void Jump(float direction)
+    private void Jump()
     {
         if (!isGrounded) return;
 
         float jumpForce = Mathf.Sqrt(jumpHeight * Physics.gravity.y * -2f) * rb.mass;
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void DownForce()
+    {
+        if (isGrounded) return;
+
+        rb.AddForce(downForce * Vector3.down, ForceMode.Impulse);
     }
 
     private void AddFallingForce()

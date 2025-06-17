@@ -9,8 +9,6 @@ public class FloorSpawner : MonoBehaviour
     [SerializeField] private Vector3 newSpawnPoint;
     [SerializeField] private Transform spawnPoint;
 
-    public float beatTempo;
-
     public void SpawnInitialTile()
     {
         newSpawnPoint = Instantiate(emptyFloorTilePrefab, newSpawnPoint, Quaternion.identity).Setup(this)

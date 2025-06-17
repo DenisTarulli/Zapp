@@ -71,7 +71,7 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Vector3.Distance(startPosition, endPosition) >= minimumDistance && (endTime - startTime) <= maximumTime)
         {
-            Debug.Log("Swipe Detected");
+            //Debug.Log("Swipe Detected");
             Debug.DrawLine(startPosition, endPosition, Color.red, 5f);
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = (Vector2)direction.normalized;
@@ -83,25 +83,25 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Up");
+            //Debug.Log("Swipe Up");
             OnSwipe?.Invoke(3f);
         }
 
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Down");
+            //Debug.Log("Swipe Down");
             OnSwipe?.Invoke(-3f);
         }
 
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Left");
+            //Debug.Log("Swipe Left");
             OnSwipe?.Invoke(-1f);
         }
 
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Right");
+            //Debug.Log("Swipe Right");
             OnSwipe?.Invoke(1f);
         }
     }

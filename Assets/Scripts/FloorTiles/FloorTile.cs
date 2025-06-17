@@ -8,7 +8,7 @@ public class FloorTile : MonoBehaviour
 
     private void Start()
     {
-        scrollSpeed = floorSpawner.beatTempo / 30f;
+        scrollSpeed = GameManager.Instance.songTempo / 30f;
     }
 
     private void Update()
