@@ -17,27 +17,27 @@ public class SoundManager : MonoBehaviour
         Instance = this;
     }
 
-    public void PlaySFX(AudioClip clip)
-    {
-        sfxSource.PlayOneShot(clip);
-    }
+    //public void PlaySFX(AudioClip clip)
+    //{
+    //    sfxSource.PlayOneShot(clip);
+    //}
 
-    public void PlayCoin() => PlaySFX(coinClip);
-    public void PlayDamage() => PlaySFX(damageClip);
-    public void PlayDeath() => PlaySFX(deathClip);
-    public void PlayMove() => PlaySFX(moveClip);
-    private void OnEnable()
-    {
-        Coin.OnCoinCollected += PlayCoin;
-        PlayerHealth.OnPlayerDamaged += PlayDamage;
-        PlayerHealth.OnPlayerDied += PlayDeath;
-    }
+    //public void PlayCoin() => PlaySFX(coinClip);
+    //public void PlayDamage() => PlaySFX(damageClip);
+    //public void PlayDeath() => PlaySFX(deathClip);
+    //public void PlayMove() => PlaySFX(moveClip);
+    //private void OnEnable()
+    //{
+    //    Coin.OnCoinCollected += PlayCoin;
+    //    PlayerHealth.OnPlayerDamaged += PlayDamage;
+    //    PlayerHealth.OnPlayerDied += PlayDeath;
+    //}
 
-    private void OnDisable()
-    {
-        Coin.OnCoinCollected -= PlayCoin;
-        PlayerHealth.OnPlayerDamaged -= PlayDamage;
-        PlayerHealth.OnPlayerDied -= PlayDeath;
-    }
+    //private void OnDisable()
+    //{
+    //    Coin.OnCoinCollected -= PlayCoin;
+    //    PlayerHealth.OnPlayerDamaged -= PlayDamage;
+    //    PlayerHealth.OnPlayerDied -= PlayDeath;
+    //}
 
 }

@@ -31,6 +31,5 @@ public class PlayerHealth : MonoBehaviour
             OnPlayerDied?.Invoke();
             GameManager.Instance.GameOver();
         }
-
     }
 }

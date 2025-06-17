@@ -45,8 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         isMoving = true;
 
-        SoundManager.Instance.PlayMove();
-
         Vector3 currentPosition = transform.position;
         Vector3 newPosition = new(newXPosition, transform.position.y, transform.position.z);
 
