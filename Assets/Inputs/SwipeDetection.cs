@@ -5,7 +5,8 @@ using UnityEngine;
 public class SwipeDetection : MonoBehaviour
 {
     #region Events
-
+    public delegate void Swipe(float swipeDirection);
+    public event Swipe OnSwipe;
     #endregion
 
     [SerializeField] private float minimumDistance = 0.2f;
@@ -83,21 +84,25 @@ public class SwipeDetection : MonoBehaviour
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
             Debug.Log("Swipe Up");
+            OnSwipe?.Invoke(3f);
         }
 
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
             Debug.Log("Swipe Down");
+            OnSwipe?.Invoke(-3f);
         }
 
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
             Debug.Log("Swipe Left");
+            OnSwipe?.Invoke(-1f);
         }
 
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
             Debug.Log("Swipe Right");
+            OnSwipe?.Invoke(1f);
         }
     }
 }

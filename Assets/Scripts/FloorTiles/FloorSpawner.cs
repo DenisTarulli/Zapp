@@ -4,38 +4,33 @@ using UnityEngine;
 
 public class FloorSpawner : MonoBehaviour
 {
-    [SerializeField] private FloorTile[] groundPrefabs;
     [SerializeField] private FloorTile emptyFloorTilePrefab;
-    [SerializeField] private int initialEmptyTiles = 2;
-    [SerializeField] private Vector3 nextSpawnPoint;
+    [SerializeField] private int initialTiles = 2;
+    [SerializeField] private Vector3 newSpawnPoint;
+    [SerializeField] private Transform spawnPoint;
 
-    private int tilesSpawned = 0;
+    public float beatTempo;
+
+    public void SpawnInitialTile()
+    {
+        newSpawnPoint = Instantiate(emptyFloorTilePrefab, newSpawnPoint, Quaternion.identity).Setup(this)
+            .transform.GetChild(1).transform.position;
+    }
 
     public void SpawnTile()
     {
-        FloorTile selectedPrefab;
-
-        if (tilesSpawned < initialEmptyTiles)
-        {
-            selectedPrefab = emptyFloorTilePrefab;
-        }
-        else
-        {
-            int randomIndex = Random.Range(0, groundPrefabs.Length);
-            selectedPrefab = groundPrefabs[randomIndex];
-        }
-
-        nextSpawnPoint = Instantiate(selectedPrefab, nextSpawnPoint, Quaternion.identity).Setup(this)
-            .transform.GetChild(1).transform.position;
-
-        tilesSpawned++;
+        Instantiate(emptyFloorTilePrefab, spawnPoint.position, Quaternion.identity).Setup(this);
     }
 
     void Start()
     {
-        for (int i = 0; i < 7; i++)
+        spawnPoint.position = new Vector3(0f, 0f, initialTiles * 15f);
+
+        for (int i = 0; i < initialTiles; i++)
         {
-            SpawnTile();
+            SpawnInitialTile();
         }
+
+        SpawnTile();
     }
 }

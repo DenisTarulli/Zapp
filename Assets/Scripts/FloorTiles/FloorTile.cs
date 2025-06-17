@@ -1,21 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FloorTile : MonoBehaviour
 {
-    private FloorSpawner groundSpawner;
+    [SerializeField] private float destroyDelay;
+    private FloorSpawner floorSpawner;
+    private float scrollSpeed;
+
+    private void Start()
+    {
+        scrollSpeed = floorSpawner.beatTempo / 30f;
+    }
+
+    private void Update()
+    {
+        transform.position -= new Vector3(0f, 0f, scrollSpeed * Time.deltaTime);
+    }
 
     public FloorTile Setup(FloorSpawner groundSpawner)
     {
-        this.groundSpawner = groundSpawner;
+        this.floorSpawner = groundSpawner;
         return this;
     }
 
-    private void OnTriggerExit(Collider other)
-
+    private void OnTriggerEnter(Collider other)
     {
-        groundSpawner.SpawnTile();
-        Destroy(gameObject, 2f);
+        if (!other.gameObject.CompareTag("Despawner")) return;
+
+        floorSpawner.SpawnTile();
+        Destroy(gameObject, destroyDelay);
     }
 }
