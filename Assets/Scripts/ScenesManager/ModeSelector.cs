@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ModeSelector : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class ModeSelector : MonoBehaviour
     public void LevelsMode()
     {
         sceneFader.FadeTo("LevelSelector");
+    }
+
+    public void Back(string previousSceneName)
+    {
+        sceneFader.FadeTo(previousSceneName);
     }
 
     private IEnumerator FadeOutMusic()

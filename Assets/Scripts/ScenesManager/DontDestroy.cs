@@ -20,6 +20,11 @@ public class DontDestroy : MonoBehaviour
         maxVolume = src.volume;        
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(FadeIn());
+    }
+
     public void StartMusic()
     {
         StartCoroutine(FadeIn());
@@ -27,6 +32,8 @@ public class DontDestroy : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
+        if (src.isPlaying) yield break;
+
         float t = 0f;
         src.volume = 0f;
         src.Play();

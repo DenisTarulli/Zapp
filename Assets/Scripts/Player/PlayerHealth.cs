@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private int maxHealth;
+    [SerializeField, Range(0.2f, 1f)] private float invulnerabilityTime;
+    private bool canTakeDamage;
     private int currentHealth;
 
     public static event Action OnPlayerDied;
@@ -15,12 +17,17 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        canTakeDamage = true;
         currentHealth = maxHealth;
         healthText.text = $"HP: {currentHealth}";
     }
 
     public void TakeDamage()
     {
+        if (!canTakeDamage) return;
+
+        StartCoroutine(InvulnerabilityFrames());
+
         currentHealth--;
         healthText.text = $"HP: {currentHealth}";
 
@@ -31,5 +38,14 @@ public class PlayerHealth : MonoBehaviour
             OnPlayerDied?.Invoke();
             GameManager.Instance.GameOver();
         }
+    }
+
+    private IEnumerator InvulnerabilityFrames()
+    {
+        canTakeDamage = false;
+
+        yield return new WaitForSeconds(invulnerabilityTime);
+
+        canTakeDamage = true;
     }
 }

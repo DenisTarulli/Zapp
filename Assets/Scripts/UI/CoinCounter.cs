@@ -8,6 +8,8 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinsText;
     private int coinAmount;
 
+    public int CoinAmount { get => coinAmount; }
+
     private void Start()
     {
         coinAmount = 0;

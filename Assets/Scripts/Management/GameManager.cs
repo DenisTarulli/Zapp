@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         Time.timeScale = 0f;
+        UpdateCoins();
 
         if (winPanel != null)
             winPanel.SetActive(true);
@@ -69,5 +70,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void UpdateCoins()
+    {
+        int amountToAdd = FindObjectOfType<CoinCounter>().CoinAmount;
+
+        int newAmount = PlayerPrefs.GetInt("Coins") + amountToAdd;
+
+        PlayerPrefs.SetInt("Coins", newAmount);
     }
 }

@@ -12,6 +12,11 @@ public class LevelSelector : MonoBehaviour
         StartCoroutine(FadeOutMusic());
     }
 
+    public void Back(string previousSceneName)
+    {
+        sceneFader.FadeTo(previousSceneName);
+    }
+
     private IEnumerator FadeOutMusic()
     {
         float t = 1f;
