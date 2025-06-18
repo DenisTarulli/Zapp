@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    [Header("UI Panels")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+
     private void Awake()
     {
         if (Instance == null)
@@ -24,11 +28,6 @@ public class GameManager : MonoBehaviour
             Instance = null;
     }
 
-    public void GameOver()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     private void Start()
     {
         StartCoroutine(StartSong());
@@ -37,7 +36,34 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartSong()
     {
         yield return new WaitForSeconds(songStartDelay);
-
         AudioManager.Instance.PlayFaded("Song");
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+
+        if (losePanel != null)
+            losePanel.SetActive(true);
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0f;
+
+        if (winPanel != null)
+            winPanel.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
