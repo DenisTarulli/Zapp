@@ -7,7 +7,28 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        float savedVolume = PlayerPrefs.GetFloat("Volume", 1f);
-        volumeSlider.value = savedVolume;
+        if (!PlayerPrefs.HasKey("Volume"))
+        {
+            PlayerPrefs.SetFloat("Volume", 1);
+        }
+        else
+            Load();
+    }
+
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("Volume", volumeSlider.value);
+    }
+
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+        AudioListener.volume = volumeSlider.value;
     }
 }

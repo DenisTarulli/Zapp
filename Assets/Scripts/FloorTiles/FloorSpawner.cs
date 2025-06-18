@@ -8,6 +8,7 @@ public class FloorSpawner : MonoBehaviour
     [SerializeField] private int initialTiles = 2;
     [SerializeField] private Vector3 newSpawnPoint;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform spawnerTrigger;
 
     public void SpawnInitialTile()
     {
@@ -23,6 +24,7 @@ public class FloorSpawner : MonoBehaviour
     void Start()
     {
         spawnPoint.position = new Vector3(0f, 0f, initialTiles * 15f);
+        spawnerTrigger.position = new Vector3(0f, 0f, spawnPoint.position.z - 22.5f);
 
         for (int i = 0; i < initialTiles; i++)
         {

@@ -24,9 +24,15 @@ public class FloorTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Despawner")) return;
+        if (other.gameObject.CompareTag("Despawner"))
+        {
+            Destroy(gameObject, destroyDelay);
+        }
 
-        floorSpawner.SpawnTile();
-        Destroy(gameObject, destroyDelay);
+
+        if (other.gameObject.CompareTag("Spawner"))
+        {
+            floorSpawner.SpawnTile();
+        }
     }
 }

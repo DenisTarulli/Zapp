@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(1)]
 public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] sounds;
@@ -63,5 +64,43 @@ public class AudioManager : Singleton<AudioManager>
         }
 
         s.source.pitch = newPitch;
+    }
+
+    public void PlayFaded(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {name} was not found!");
+        }
+
+        StartCoroutine(FadeIn(name));
+    }
+
+    public IEnumerator FadeIn(string soundName)
+    {
+        float t = 0f;
+
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {soundName} was not found!");
+        }
+
+        float maxVolume = s.volume;
+        s.source.volume = 0f;
+        s.source.Play();
+
+        while (s.source.volume < maxVolume)
+        {
+            t += Time.deltaTime;
+            float newVolume = t * maxVolume;
+            s.source.volume = newVolume;
+            yield return 0;
+        }
+
+        s.source.volume = maxVolume;
     }
 }

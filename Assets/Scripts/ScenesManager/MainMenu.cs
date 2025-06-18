@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        sceneFader.FadeTo("MainScene");
+        sceneFader.FadeTo("ModeSelector");
     }
 
     public void OpenSettings()
