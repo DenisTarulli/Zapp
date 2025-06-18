@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private SceneFader sceneFader;
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainScene");
+        sceneFader.FadeTo("MainScene");
     }
 
     public void OpenSettings()
