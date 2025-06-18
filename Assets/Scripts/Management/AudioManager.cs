@@ -52,4 +52,16 @@ public class AudioManager : Singleton<AudioManager>
                 Play(s.name);
         }
     }
+
+    public void SetPitch(string soundName, float newPitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {soundName} was not found!");
+        }
+
+        s.source.pitch = newPitch;
+    }
 }
