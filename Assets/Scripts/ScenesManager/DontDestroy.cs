@@ -1,10 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    void Awake()
+    private AudioSource src;
+    private float maxVolume;
+
+    private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
 
@@ -14,7 +16,29 @@ public class DontDestroy : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-        AudioSource src = objs[0].GetComponent<AudioSource>();
+        src = objs[0].GetComponent<AudioSource>();
+        maxVolume = src.volume;        
+    }
+
+    public void StartMusic()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float t = 0f;
+        src.volume = 0f;
         src.Play();
+
+        while (src.volume < maxVolume)
+        {
+            t += Time.deltaTime;
+            float newVolume = t * maxVolume;
+            src.volume = newVolume;
+            yield return 0;
+        }
+
+        src.volume = maxVolume;
     }
 }

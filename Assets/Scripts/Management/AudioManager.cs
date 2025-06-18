@@ -45,6 +45,28 @@ public class AudioManager : Singleton<AudioManager>
         s.source.Play();
     }
 
+    public void Pause(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {name} was not found!");
+        }
+
+        s.source.Pause();
+    }
+
+    public void Unpause(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound: {name} was not found!");
+        }
+
+        s.source.UnPause();
+    }
+
     private void Start()
     {
         foreach (Sound s in sounds)

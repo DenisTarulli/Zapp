@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public float songTempo;
     public float songTempoDivider;
     [SerializeField] private float songStartDelay;
+    [SerializeField] private bool isInfinity;
 
     public static GameManager Instance { get; private set; }
 
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartSong());
+        if (!isInfinity)
+            StartCoroutine(StartSong());
     }
 
     public IEnumerator StartSong()
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
 
         if (losePanel != null)
             losePanel.SetActive(true);
+
+        AudioManager.Instance.StopPlaying("Song");
     }
 
     public void Win()

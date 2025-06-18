@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private SwipeDetection swipeDetection;
 
-    private Coroutine coroutine;
+    TouchControls inputActions;
+    private Vector2 inputVector;
 
     private void OnEnable()
     {
@@ -30,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         swipeDetection.OnSwipe -= StartMovement;
+    }
+
+    private void Awake()
+    {
+        inputActions = new TouchControls();
+        inputActions.Keyboard.Enable();
+        inputActions.Keyboard.Movement.performed += Move;
     }
 
     private void Start()
@@ -45,9 +54,24 @@ public class PlayerMovement : MonoBehaviour
         GravityControl();
     }
 
+    private void Move(InputAction.CallbackContext context)
+    {
+        inputVector = inputActions.Keyboard.Movement.ReadValue<Vector2>();
+
+        if (inputVector.x < 0f)
+            StartMovement(-1f);
+        else if (inputVector.x > 0f)
+            StartMovement(1f);
+
+        if (inputVector.y > 0f)
+            Jump();
+        else if (inputVector.y < 0f)
+            DownForce();
+    }
+
     private bool GroundCheck()
     {
-        float extraHeight = 0.4f;
+        float extraHeight = 0.1f;
         isGrounded = Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + extraHeight, groundMask);
         return isGrounded;
     }
@@ -58,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isMoving && newIndex <= 2 && newIndex >= 0)
         {
-            coroutine = StartCoroutine(MoveTo(dir));
+            StartCoroutine(MoveTo(dir));
         }
 
         if (dir > 1)
@@ -95,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (!isGrounded) return;
+        if (isGrounded == false || rb.velocity.y > 0f) return;
 
         float jumpForce = Mathf.Sqrt(jumpHeight * Physics.gravity.y * -2f) * rb.mass;
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
