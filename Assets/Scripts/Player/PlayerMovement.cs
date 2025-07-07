@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Keyboard.Movement.performed += Move;
     }
 
+    private void OnDestroy()
+    {
+        inputActions.Keyboard.Disable();
+    }
+
     private void Start()
     {
         positionIndex = 1;
