@@ -74,6 +74,24 @@ public class PlayerMovement : MonoBehaviour
             DownForce();
     }
 
+    public void SwipeMoveTrigger(Vector2 delta)
+    {
+        if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+        {
+            if (delta.x < 0)
+                StartMovement(-1f);
+            else
+                StartMovement(1f);
+        }
+        else
+        {
+            if (delta.y < 0)
+                DownForce();
+            else
+                Jump();
+        }
+    }
+
     private bool GroundCheck()
     {
         float extraHeight = 0.1f;
