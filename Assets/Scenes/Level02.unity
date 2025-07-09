@@ -18860,6 +18860,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1572164723024692700, guid: fb1af215d5e889d49a00b5cc38e64322,
+        type: 3}
+      propertyPath: swipeDetection
+      value: 
+      objectReference: {fileID: 536001646}
     - target: {fileID: 2297186419093370093, guid: fb1af215d5e889d49a00b5cc38e64322,
         type: 3}
       propertyPath: m_Name
