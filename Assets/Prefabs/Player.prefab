@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7938298622344654532}
   - component: {fileID: 1572164723024692700}
   - component: {fileID: 6799713144167108437}
+  - component: {fileID: 6056575785622978668}
   - component: {fileID: 1942835045676439497}
   m_Layer: 0
   m_Name: Player
@@ -174,8 +175,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
-  maxHealth: 5
-  invulnerabilityTime: 0.775
+  maxHealth: 10
+  invulnerabilityTime: 0.2
+--- !u!114 &6056575785622978668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297186419093370093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b962f740a984a46966046e382ab19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 2100000, guid: 9aff473a842bedb45b2fb6ce4ea69d85, type: 2}
+  - {fileID: 2100000, guid: d217a833e18915843a06671e206fa0f4, type: 2}
+  - {fileID: 2100000, guid: b746fd94d8d96304da2f4e89c699aa55, type: 2}
+  - {fileID: 2100000, guid: 792d31d19ca6aad40919cda69bc18a50, type: 2}
+  newSkin: 1
 --- !u!95 &1942835045676439497
 Animator:
   serializedVersion: 5

@@ -36,4 +36,9 @@ public class MainMenu : MonoBehaviour
     {
         settingsPanel.SetActive(false);
     }
+
+    public void OpenShop()
+    {
+        sceneFader.FadeTo("Shop");
+    }
 }

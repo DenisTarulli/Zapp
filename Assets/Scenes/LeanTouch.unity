@@ -4543,19 +4543,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799713144167108437, guid: fb1af215d5e889d49a00b5cc38e64322,
         type: 3}
-      propertyPath: maxHealth
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799713144167108437, guid: fb1af215d5e889d49a00b5cc38e64322,
-        type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1888888416}
-    - target: {fileID: 6799713144167108437, guid: fb1af215d5e889d49a00b5cc38e64322,
-        type: 3}
-      propertyPath: invulnerabilityTime
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
