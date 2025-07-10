@@ -52,6 +52,7 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("Coins", coins);
 
             currentButton.SetSkinButtonActive();
+            currentButton.SkinAcquired = true;
 
             SetCoins();
 

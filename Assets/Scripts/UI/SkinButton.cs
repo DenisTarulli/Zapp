@@ -15,6 +15,7 @@ public class SkinButton : MonoBehaviour
     public string SkinName { get => skinName; }
     public int SkinPrice { get => skinPrice; }
     public GameObject SetSkinButton { get => setSkinButton; }
+    public bool SkinAcquired { get => skinAcquired; set => skinAcquired = value; }
 
     private void Awake()
     {
