@@ -159,7 +159,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  downForce: 12
+  downForce: 20
   isGrounded: 0
   swipeDetection: {fileID: 0}
 --- !u!114 &6799713144167108437
