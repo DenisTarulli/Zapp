@@ -4476,6 +4476,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 407153490826059069, guid: fb1af215d5e889d49a00b5cc38e64322,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af860aff0f9305b449a06304f209c7f7, type: 2}
     - target: {fileID: 1572164723024692700, guid: fb1af215d5e889d49a00b5cc38e64322,
         type: 3}
       propertyPath: groundCollider

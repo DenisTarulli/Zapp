@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 2100000, guid: 9aff473a842bedb45b2fb6ce4ea69d85, type: 2}
-  - {fileID: 2100000, guid: d217a833e18915843a06671e206fa0f4, type: 2}
-  - {fileID: 2100000, guid: b746fd94d8d96304da2f4e89c699aa55, type: 2}
-  - {fileID: 2100000, guid: 792d31d19ca6aad40919cda69bc18a50, type: 2}
+  - {fileID: 2100000, guid: 90947eadc872e0c4ebe6fc910811ed91, type: 2}
+  - {fileID: 2100000, guid: af860aff0f9305b449a06304f209c7f7, type: 2}
+  - {fileID: 2100000, guid: f9f31ecf81ed28f4082d645a3a34fcd4, type: 2}
+  - {fileID: 2100000, guid: d030661bdc1780c4695c69b320202514, type: 2}
   newSkin: 1
 --- !u!95 &1942835045676439497
 Animator:
