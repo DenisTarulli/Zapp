@@ -668,6 +668,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AddCoinsTest (DEBUGGING)
       objectReference: {fileID: 0}
+    - target: {fileID: 298029465576278313, guid: 0c2c1fe1ac471fd4d8af079866f24afc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1940307213607228096, guid: 0c2c1fe1ac471fd4d8af079866f24afc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1108,7 +1113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3, y: -452.5}
+  m_AnchoredPosition: {x: -764, y: -353}
   m_SizeDelta: {x: 263.4, y: 236.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646403338
@@ -2186,7 +2191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 513}
+  m_AnchoredPosition: {x: 0, y: 437}
   m_SizeDelta: {x: 891.36, y: 169.043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022537569
@@ -2483,7 +2488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -840}
+  m_AnchoredPosition: {x: 0, y: -397}
   m_SizeDelta: {x: 420, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &791633571061278475

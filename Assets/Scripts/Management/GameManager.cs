@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (!isInfinity)
-            StartCoroutine(StartSong());
+        // if (!isInfinity)
+        StartCoroutine(StartSong());
     }
 
     public IEnumerator StartSong()
@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
 
         if (losePanel != null)
             losePanel.SetActive(true);
+
+        if (isInfinity)
+            UpdateCoins();
 
         AudioManager.Instance.StopPlaying("Song");
     }
