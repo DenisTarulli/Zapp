@@ -7,6 +7,7 @@ public class RutaPorPuntos : MonoBehaviour
     public float velocidad = 1f;
     public bool rotarHaciaDestino = true;
     public bool loop = true;
+    public float delayInicio = 0f; // segundos de espera antes de empezar
 
     [Header("Rotación sobre ejes")]
     public bool rotarEnX = false;
@@ -17,9 +18,22 @@ public class RutaPorPuntos : MonoBehaviour
     public float velocidadRotacionZ = 30f;
 
     private int puntoActual = 0;
+    private bool movimientoActivo = false;
+    private float tiempoTranscurrido = 0f;
 
     void Update()
     {
+        // Contar el tiempo antes de empezar
+        if (!movimientoActivo)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            if (tiempoTranscurrido >= delayInicio)
+            {
+                movimientoActivo = true;
+            }
+            return; // No hacer nada hasta que pase el delay
+        }
+
         // Movimiento por ruta
         if (puntosRuta.Length > 0)
         {
