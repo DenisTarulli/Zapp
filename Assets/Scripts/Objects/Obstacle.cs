@@ -19,7 +19,10 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
+        {
             playerHealth.TakeDamage();
+            Destroy(gameObject);
+        }
 
         if (!other.gameObject.CompareTag("Despawner")) return;
         Destroy(gameObject);

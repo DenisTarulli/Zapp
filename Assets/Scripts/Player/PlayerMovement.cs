@@ -13,26 +13,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private BoxCollider groundCollider;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float downForce;
+    [SerializeField] private GameObject trail;
     private int positionIndex;
     private float interpolateAmount;
     private bool isMoving;
     [SerializeField] private bool isGrounded;
     private Rigidbody rb;
 
-    [SerializeField] private SwipeDetection swipeDetection;
-
     TouchControls inputActions;
     private Vector2 inputVector;
-
-    private void OnEnable()
-    {
-        swipeDetection.OnSwipe += StartMovement;
-    }
-
-    private void OnDisable()
-    {
-        swipeDetection.OnSwipe -= StartMovement;
-    }
 
     private void Awake()
     {
@@ -48,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        trail = transform.GetChild(1).gameObject;
         positionIndex = 1;
         rb = GetComponent<Rigidbody>();
     }
@@ -57,6 +47,22 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         AddFallingForce();
         GravityControl();
+        PositionFixer();
+        HandleParticles();
+    }
+
+    private void HandleParticles()
+    {
+        if (isGrounded)
+            trail.SetActive(true);
+        else
+            trail.SetActive(false);
+    }
+
+    private void PositionFixer()
+    {
+        if (!isMoving && isGrounded)
+            transform.position = new(positionIndex - 1f, 0.5f, 0f);
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -131,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             interpolateAmount += Time.deltaTime * interpolationSpeed;
             transform.position = Vector3.Lerp(currentPosition, newPosition, interpolateAmount);
 
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         positionIndex += (int)direction;

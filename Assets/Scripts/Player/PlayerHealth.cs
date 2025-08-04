@@ -8,7 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private int maxHealth;
-    [SerializeField, Range(0.2f, 1f)] private float invulnerabilityTime;
+    [SerializeField, Range(0.2f, 3f)] private float invulnerabilityTime;
+    private GameObject invulnerabilityEffect;
     private bool canTakeDamage;
     private int currentHealth;
 
@@ -17,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        invulnerabilityEffect = transform.GetChild(0).gameObject;
         canTakeDamage = true;
         currentHealth = maxHealth;
         healthText.text = $"HP: {currentHealth}";
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth--;
         healthText.text = $"HP: {currentHealth}";
 
+        AudioManager.Instance.Play("Hurt");
         OnPlayerDamaged?.Invoke();
 
         if (currentHealth <= 0)
@@ -43,9 +46,11 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvulnerabilityFrames()
     {
         canTakeDamage = false;
+        invulnerabilityEffect.SetActive(true);
 
         yield return new WaitForSeconds(invulnerabilityTime);
 
         canTakeDamage = true;
+        invulnerabilityEffect.SetActive(false);
     }
 }
