@@ -6,16 +6,10 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public static event Action OnCoinCollected;
-    private float scrollSpeed;
-
-    private void Start()
-    {
-        scrollSpeed = GameManager.Instance.songTempo / GameManager.Instance.songTempoDivider;
-    }
 
     private void Update()
     {
-        transform.position -= new Vector3(0f, 0f, scrollSpeed * Time.deltaTime);
+        transform.position -= new Vector3(0f, 0f, GameManager.Instance.scrollingSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4,16 +4,10 @@ public class FloorTile : MonoBehaviour
 {
     [SerializeField] private float destroyDelay;
     private FloorSpawner floorSpawner;
-    private float scrollSpeed;
-
-    private void Start()
-    {
-        scrollSpeed = GameManager.Instance.songTempo / GameManager.Instance.songTempoDivider;
-    }
 
     private void Update()
     {
-        transform.position -= new Vector3(0f, 0f, scrollSpeed * Time.deltaTime);
+        transform.position -= new Vector3(0f, 0f, GameManager.Instance.scrollingSpeed * Time.deltaTime);
     }
 
     public FloorTile Setup(FloorSpawner groundSpawner)

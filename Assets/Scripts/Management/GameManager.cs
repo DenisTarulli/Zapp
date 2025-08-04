@@ -7,12 +7,15 @@ public class GameManager : MonoBehaviour
 {
     public float songTempo;
     public float songTempoDivider;
+    public float scrollingSpeed;
+    public float scrollingSpeedMultiplier;
     [SerializeField] private float songStartDelay;
     [SerializeField] private bool isInfinity;
     [SerializeField] private float songDuration;
     [SerializeField] private Slider progressSlider;
 
     public static GameManager Instance { get; private set; }
+    public bool IsInfinity { get => isInfinity; }
 
     [Header("UI Panels")]
     [SerializeField] private GameObject winPanel;
@@ -34,17 +37,28 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        progressSlider.maxValue = songDuration;
-        progressSlider.minValue = 0f;
-        progressSlider.value = 0f;
-        // if (!isInfinity)
+        if (!isInfinity)
+        {
+            progressSlider.maxValue = songDuration;
+            progressSlider.minValue = 0f;
+            progressSlider.value = 0f;
+        }        
+
+        scrollingSpeed = songTempo / songTempoDivider;
+
         StartCoroutine(StartSong());
     }
 
     public void Update()
     {
+        if (isInfinity)
+        {
+            scrollingSpeed += Time.deltaTime * scrollingSpeedMultiplier;
+            return;
+        }
+
         if (progressSlider.value != progressSlider.maxValue)
-            progressSlider.value += Time.deltaTime;
+            progressSlider.value += Time.deltaTime;        
     }
 
     public IEnumerator StartSong()
