@@ -17756,6 +17756,16 @@ PrefabInstance:
       propertyPath: swipeDetection
       value: 
       objectReference: {fileID: 536001646}
+    - target: {fileID: 1596173508970811819, guid: fb1af215d5e889d49a00b5cc38e64322,
+        type: 3}
+      propertyPath: cooldownText
+      value: 
+      objectReference: {fileID: 1254239011}
+    - target: {fileID: 1596173508970811819, guid: fb1af215d5e889d49a00b5cc38e64322,
+        type: 3}
+      propertyPath: powerUpButton
+      value: 
+      objectReference: {fileID: 1254239010}
     - target: {fileID: 2297186419093370093, guid: fb1af215d5e889d49a00b5cc38e64322,
         type: 3}
       propertyPath: m_Name
@@ -32531,6 +32541,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 559780905}
     m_Modifications:
+    - target: {fileID: 1791287108517234891, guid: 06f279eba4397664688701f1f161673f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1852859912}
+    - target: {fileID: 1791287108517234891, guid: 06f279eba4397664688701f1f161673f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePowerUp
+      objectReference: {fileID: 0}
     - target: {fileID: 4003378146303692679, guid: 06f279eba4397664688701f1f161673f,
         type: 3}
       propertyPath: m_Name
@@ -32647,6 +32667,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1254239008}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1254239010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1791287108517234891, guid: 06f279eba4397664688701f1f161673f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254239008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1254239011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6886130161605407534, guid: 06f279eba4397664688701f1f161673f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254239008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1255678273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9221720554547794518, guid: 8bdeb02e334585f4cb6a632fd1fc69f5,
@@ -47082,6 +47126,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deec35a1b62201a48b009c6225ecf7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1852859912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1596173508970811819, guid: fb1af215d5e889d49a00b5cc38e64322,
+    type: 3}
+  m_PrefabInstance: {fileID: 683937885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8786aa438a6a5b340808295280e3c85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1852998517

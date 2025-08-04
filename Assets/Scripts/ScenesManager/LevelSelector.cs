@@ -27,7 +27,7 @@ public class LevelSelector : MonoBehaviour
 
         while (t > 0f)
         {
-            t -= Time.deltaTime;
+            t -= Time.deltaTime * sceneFader.animationSpeed;
             float newVolume = t * maxVolume;
             src.volume = newVolume;
             yield return 0;

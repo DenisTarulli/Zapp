@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
 
     public bool CanTakeDamage { get => canTakeDamage; set => canTakeDamage = value; }
+    public bool PowerUpActive;
 
     public static event Action OnPlayerDied;
     public static event Action OnPlayerDamaged;
@@ -51,8 +52,9 @@ public class PlayerHealth : MonoBehaviour
         invulnerabilityEffect.SetActive(true);
 
         yield return new WaitForSeconds(invulnerabilityTime);
+        if (!PowerUpActive)
+            canTakeDamage = true;
 
-        canTakeDamage = true;
         invulnerabilityEffect.SetActive(false);
     }
 }

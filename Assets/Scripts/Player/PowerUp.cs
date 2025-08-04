@@ -26,7 +26,7 @@ public class PowerUp : MonoBehaviour
 
     private void Update()
     {
-        if (currentCooldown <= 0)
+        if (currentCooldown <= 0 && !powerUpActive)
         {
             currentCooldown = 0;
             powerUpReady = true;
@@ -61,6 +61,7 @@ public class PowerUp : MonoBehaviour
     {
         if (powerUpActive || !powerUpReady) yield break;
 
+        playerHealth.PowerUpActive = true;
         powerUpActive = true;
         powerUpReady = false;
         playerHealth.CanTakeDamage = false;
@@ -68,9 +69,10 @@ public class PowerUp : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
+        playerHealth.PowerUpActive = false;
+        currentCooldown = maxCooldown;
         powerUpActive = false;
         playerHealth.CanTakeDamage = true;
         invulnerabilityEffect.SetActive(false);
-        currentCooldown = maxCooldown;
     }
 }

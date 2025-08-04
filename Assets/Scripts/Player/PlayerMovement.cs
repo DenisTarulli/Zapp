@@ -20,14 +20,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private Rigidbody rb;
 
-    TouchControls inputActions;
+    private TouchControls inputActions;
     private Vector2 inputVector;
+    private PowerUp powerUp;
 
     private void Awake()
     {
         inputActions = new TouchControls();
         inputActions.Keyboard.Enable();
         inputActions.Keyboard.Movement.performed += Move;
+        inputActions.Keyboard.PowerUp.performed += TriggerPowerUp;
     }
 
     private void OnDestroy()
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        powerUp = GetComponent<PowerUp>();
         trail = transform.GetChild(1).gameObject;
         positionIndex = 1;
         rb = GetComponent<Rigidbody>();
@@ -49,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
         GravityControl();
         PositionFixer();
         HandleParticles();
+    }
+
+    private void TriggerPowerUp(InputAction.CallbackContext context)
+    {
+        powerUp.ActivatePowerUp();
     }
 
     private void HandleParticles()

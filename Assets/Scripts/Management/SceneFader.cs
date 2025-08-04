@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneFader : MonoBehaviour
 {
     [SerializeField] private Image fadeImage;
-    [SerializeField, Range(1f, 10f)] private float animationSpeed;
+    [Range(1f, 10f)] public float animationSpeed;
     [SerializeField] private AnimationCurve animationCurve;
     private GraphicRaycaster raycaster;
 

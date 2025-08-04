@@ -285,6 +285,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   maxHealth: 5
   invulnerabilityTime: 3
+  PowerUpActive: 0
 --- !u!114 &6056575785622978668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCooldown: 15
   invulnerabilityEffect: {fileID: 2038800704829531447}
-  duration: 7
+  duration: 6
   cooldownText: {fileID: 0}
   powerUpButton: {fileID: 0}
 --- !u!1 &3743838060224237241
