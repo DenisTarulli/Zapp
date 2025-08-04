@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 4805902144535825790}
+  animationSpeed: 3
   animationCurve:
     serializedVersion: 2
     m_Curve:

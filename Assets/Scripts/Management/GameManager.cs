@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public float songTempoDivider;
     [SerializeField] private float songStartDelay;
     [SerializeField] private bool isInfinity;
+    [SerializeField] private float songDuration;
+    [SerializeField] private Slider progressSlider;
 
     public static GameManager Instance { get; private set; }
 
@@ -31,8 +34,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        progressSlider.maxValue = songDuration;
+        progressSlider.minValue = 0f;
+        progressSlider.value = 0f;
         // if (!isInfinity)
         StartCoroutine(StartSong());
+    }
+
+    public void Update()
+    {
+        if (progressSlider.value != progressSlider.maxValue)
+            progressSlider.value += Time.deltaTime;
     }
 
     public IEnumerator StartSong()

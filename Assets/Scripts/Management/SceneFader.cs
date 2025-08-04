@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SceneFader : MonoBehaviour
 {
     [SerializeField] private Image fadeImage;
+    [SerializeField, Range(1f, 10f)] private float animationSpeed;
     [SerializeField] private AnimationCurve animationCurve;
     private GraphicRaycaster raycaster;
 
@@ -21,7 +22,7 @@ public class SceneFader : MonoBehaviour
 
         while (t > 0f)
         {
-            t -= Time.deltaTime;
+            t -= Time.deltaTime * animationSpeed;
             float a = animationCurve.Evaluate(t);
             fadeImage.color = new Color(0f, 0f, 0f, a);
             yield return 0;
@@ -38,7 +39,7 @@ public class SceneFader : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * animationSpeed;
             float a = animationCurve.Evaluate(t);
             fadeImage.color = new Color(0f, 0f, 0f, a);
             yield return 0;

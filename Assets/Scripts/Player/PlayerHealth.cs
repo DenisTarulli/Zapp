@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     private bool canTakeDamage;
     private int currentHealth;
 
+    public bool CanTakeDamage { get => canTakeDamage; set => canTakeDamage = value; }
+
     public static event Action OnPlayerDied;
     public static event Action OnPlayerDamaged;
 
