@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -6,10 +7,28 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
 
     private bool isPaused = false;
+    private TouchControls inputActions;
+
+    private void Awake()
+    {
+        inputActions = new TouchControls();
+        inputActions.Keyboard.Enable();
+        inputActions.Keyboard.Pause.performed += TogglePauseKeyboard;
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Keyboard.Disable();
+    }
 
     void Start()
     {
         pausePanel.SetActive(false);
+    }
+
+    private void TogglePauseKeyboard(InputAction.CallbackContext context)
+    {
+        TogglePause();
     }
 
     public void TogglePause()

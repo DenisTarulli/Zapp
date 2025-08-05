@@ -156,6 +156,15 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""e546c412-f7aa-4136-b795-0b06602d02a9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -224,6 +233,17 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                     ""action"": ""PowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe01c498-607b-42b1-b61a-8c2f159323bc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
         m_Keyboard_PowerUp = m_Keyboard.FindAction("PowerUp", throwIfNotFound: true);
+        m_Keyboard_Pause = m_Keyboard.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@TouchControls()
@@ -428,6 +449,7 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
     private List<IKeyboardActions> m_KeyboardActionsCallbackInterfaces = new List<IKeyboardActions>();
     private readonly InputAction m_Keyboard_Movement;
     private readonly InputAction m_Keyboard_PowerUp;
+    private readonly InputAction m_Keyboard_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Keyboard".
     /// </summary>
@@ -447,6 +469,10 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Keyboard/PowerUp".
         /// </summary>
         public InputAction @PowerUp => m_Wrapper.m_Keyboard_PowerUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Keyboard/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Keyboard_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -479,6 +505,9 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
             @PowerUp.started += instance.OnPowerUp;
             @PowerUp.performed += instance.OnPowerUp;
             @PowerUp.canceled += instance.OnPowerUp;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -496,6 +525,9 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
             @PowerUp.started -= instance.OnPowerUp;
             @PowerUp.performed -= instance.OnPowerUp;
             @PowerUp.canceled -= instance.OnPowerUp;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -572,5 +604,12 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPowerUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

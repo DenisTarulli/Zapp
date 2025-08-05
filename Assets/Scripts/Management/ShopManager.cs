@@ -101,6 +101,6 @@ public class ShopManager : MonoBehaviour
 
     private void SetCoins()
     {
-        coinsText.text = $"COINS: {PlayerPrefs.GetInt("Coins", 0)}";
+        coinsText.text = $"x{PlayerPrefs.GetInt("Coins", 0)}";
     }
 }
