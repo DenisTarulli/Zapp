@@ -13,13 +13,13 @@ public class CoinCounter : MonoBehaviour
     private void Start()
     {
         coinAmount = 0;
-        coinsText.text = $"Coins: {coinAmount}";
+        coinsText.text = $"x{coinAmount}";
     }
 
     private void AddCoin()
     {
         coinAmount++;
-        coinsText.text = $"Coins: {coinAmount}";
+        coinsText.text = $"x{coinAmount}";
     }
 
     private void OnEnable()

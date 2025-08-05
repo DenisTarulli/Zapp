@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private int maxHealth;
     [SerializeField, Range(0.2f, 3f)] private float invulnerabilityTime;
     private GameObject invulnerabilityEffect;
     private bool canTakeDamage;
     private int currentHealth;
+
+    [SerializeField] private Transform heartsContainer;
+    private GameObject[] hearts;
 
     public bool CanTakeDamage { get => canTakeDamage; set => canTakeDamage = value; }
     public bool PowerUpActive;
@@ -21,10 +22,16 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        hearts = new GameObject[heartsContainer.childCount];
+
+        for (int i = 0; i < heartsContainer.childCount; i++)
+        {
+            hearts[i] = heartsContainer.GetChild(i).gameObject;
+        }
+
         invulnerabilityEffect = transform.GetChild(0).gameObject;
         canTakeDamage = true;
         currentHealth = maxHealth;
-        healthText.text = $"HP: {currentHealth}";
     }
 
     public void TakeDamage()
@@ -34,7 +41,12 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(InvulnerabilityFrames());
 
         currentHealth--;
-        healthText.text = $"HP: {currentHealth}";
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if ((currentHealth - 1) < i)
+                hearts[i].SetActive(false);
+        }
 
         AudioManager.Instance.Play("Hurt");
         OnPlayerDamaged?.Invoke();
