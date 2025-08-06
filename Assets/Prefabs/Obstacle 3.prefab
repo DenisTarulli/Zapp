@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0c391153638e147b1a859a4289aee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moves: 1
 --- !u!1001 &8505183966204127311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,13 +220,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6056300028837890573, guid: ced50508aecc51e4a9d5a634bdf0ea25,
+        type: 3}
+      propertyPath: moves
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8934739013767434562, guid: ced50508aecc51e4a9d5a634bdf0ea25,
         type: 3}
       propertyPath: m_Name
       value: Obstacle (697)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6056300028837890573, guid: ced50508aecc51e4a9d5a634bdf0ea25, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

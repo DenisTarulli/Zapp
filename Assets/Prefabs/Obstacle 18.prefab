@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0c391153638e147b1a859a4289aee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moves: 1
 --- !u!1 &3122728771609574823
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +160,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 553925727365911758}
     m_Modifications:
+    - target: {fileID: 3246192005478950465, guid: 8bdeb02e334585f4cb6a632fd1fc69f5,
+        type: 3}
+      propertyPath: moves
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3605097151018779580, guid: 8bdeb02e334585f4cb6a632fd1fc69f5,
         type: 3}
       propertyPath: m_Name
@@ -224,8 +230,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3246192005478950465, guid: 8bdeb02e334585f4cb6a632fd1fc69f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
