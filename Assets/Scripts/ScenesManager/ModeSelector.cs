@@ -9,8 +9,8 @@ public class ModeSelector : MonoBehaviour
 
     public void InfinityMode()
     {
-        sceneFader.FadeTo("InfinityLevel");
         StartCoroutine(FadeOutMusic());
+        sceneFader.FadeTo("InfinityLevel");
     }
 
     public void LevelsMode()
@@ -33,7 +33,7 @@ public class ModeSelector : MonoBehaviour
 
         while (t > 0f)
         {
-            t -= Time.deltaTime;
+            t -= Time.deltaTime * sceneFader.animationSpeed;
             float newVolume = t * maxVolume;
             src.volume = newVolume;
             yield return 0;

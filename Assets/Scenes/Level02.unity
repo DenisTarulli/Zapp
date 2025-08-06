@@ -16492,6 +16492,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1af215d5e889d49a00b5cc38e64322, type: 3}
+--- !u!114 &683937886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1596173508970811819, guid: fb1af215d5e889d49a00b5cc38e64322,
+    type: 3}
+  m_PrefabInstance: {fileID: 683937885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8786aa438a6a5b340808295280e3c85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691495263
 GameObject:
   m_ObjectHideFlags: 0
@@ -22327,6 +22339,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnToMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4687910138341794699, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 683937886}
+    - target: {fileID: 4687910138341794699, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePowerUp
+      objectReference: {fileID: 0}
     - target: {fileID: 5042181873870372295, guid: 33026d0fe4601664aa6360541c45a3b5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -22381,6 +22403,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228213999188266195, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5604275195744137210}
+    - target: {fileID: 7228213999188266195, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePause
       objectReference: {fileID: 0}
     - target: {fileID: 7286974205389098688, guid: 33026d0fe4601664aa6360541c45a3b5,
         type: 3}

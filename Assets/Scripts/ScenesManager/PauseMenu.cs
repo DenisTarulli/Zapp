@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
+            AudioManager.Instance.Unpause("Song");
             pausePanel.SetActive(false);
         }
     }

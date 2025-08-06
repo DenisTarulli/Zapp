@@ -8,8 +8,8 @@ public class LevelSelector : MonoBehaviour
 
     public void SelectLevel(string level)
     {
-        sceneFader.FadeTo(level);
         StartCoroutine(FadeOutMusic());
+        sceneFader.FadeTo(level);
     }
 
     public void Back(string previousSceneName)

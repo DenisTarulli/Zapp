@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool isInfinity;
     [SerializeField] private float songDuration;
     [SerializeField] private Slider progressSlider;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI maxScoreText;
+    [SerializeField] private float scoreMultiplier;
+    private float score;
+    private float maxScore;
 
     public static GameManager Instance { get; private set; }
     public bool IsInfinity { get => isInfinity; }
@@ -54,11 +61,31 @@ public class GameManager : MonoBehaviour
         if (isInfinity)
         {
             scrollingSpeed += Time.deltaTime * scrollingSpeedMultiplier;
+            Score();
             return;
         }
 
         if (progressSlider.value != progressSlider.maxValue)
             progressSlider.value += Time.deltaTime;        
+    }
+
+    private void Score()
+    {
+        score += Time.deltaTime * scoreMultiplier * (scrollingSpeed / 20f);
+        scoreText.text = ((int)score).ToString("D6");
+    }
+
+    private void UpdateMaxScore()
+    {
+        maxScore = PlayerPrefs.GetFloat("MaxScore", 0f);
+
+        if (score > maxScore)
+        {
+            PlayerPrefs.SetFloat("MaxScore", score);        
+            maxScore = score;
+        }
+
+        maxScoreText.text = ((int)maxScore).ToString("D6");
     }
 
     public IEnumerator StartSong()
@@ -75,7 +102,10 @@ public class GameManager : MonoBehaviour
             losePanel.SetActive(true);
 
         if (isInfinity)
+        {
             UpdateCoins();
+            UpdateMaxScore();
+        }
 
         AudioManager.Instance.StopPlaying("Song");
     }

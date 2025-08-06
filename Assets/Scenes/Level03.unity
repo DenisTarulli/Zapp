@@ -26912,6 +26912,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 580210728}
+    - target: {fileID: 1863611804741134132, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2019617983063006245, guid: 33026d0fe4601664aa6360541c45a3b5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27231,6 +27236,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228213999188266195, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5604275195744137210}
+    - target: {fileID: 7228213999188266195, guid: 33026d0fe4601664aa6360541c45a3b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePause
       objectReference: {fileID: 0}
     - target: {fileID: 7286974205389098688, guid: 33026d0fe4601664aa6360541c45a3b5,
         type: 3}
